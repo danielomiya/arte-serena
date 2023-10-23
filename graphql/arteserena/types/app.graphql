@@ -1,0 +1,17 @@
+type Query {
+    "Fetch details associated with the authenticated user"
+    me: User!
+}
+
+type Mutation
+
+type User {
+    id: ID!
+    name: String!
+    bio: String
+    imageUrl: String
+    followersCount: Int!
+    followingCount: Int!
+    isFollowing: Boolean
+    # posts: [Post]!
+}

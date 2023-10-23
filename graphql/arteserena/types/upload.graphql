@@ -1,0 +1,14 @@
+extend type Mutation {
+    uploadImage(input: UploadImageInput!): UploadImageResponse!
+}
+
+input UploadImageInput {
+    fileName: String!
+    fileType: String!
+    sizeInBytes: Int!
+}
+
+type UploadImageResponse {
+    uploadUrl: String
+    error: String
+}

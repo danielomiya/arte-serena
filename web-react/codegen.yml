@@ -1,0 +1,28 @@
+overwrite: true
+schema:
+  # - "../graphql/src/arteserena/**/*.graphql"
+  - "../graphql/src/arteserena/types/app.graphql"
+  - "../graphql/src/arteserena/types/feed.graphql"
+  - "../graphql/src/arteserena/types/upload.graphql"
+# config:
+#   scalars:
+#     Long: number
+documents:
+  - "src/**/*.graphql"
+generates:
+  src/types.generated.ts:
+    plugins:
+      - "typescript"
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: ".generated.ts"
+      baseTypesPath: types.generated.ts
+    plugins:
+      - "typescript-operations"
+      - "typescript-react-apollo"
+      - add:
+          content: "/* eslint-disable */"
+hooks:
+  afterAllFileWrite:
+    - prettier --write

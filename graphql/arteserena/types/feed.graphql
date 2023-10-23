@@ -1,0 +1,32 @@
+extend type Query {
+  getUserFeed(offset: Int, limit: Int): Feed!
+}
+
+extend type Mutation {
+  createPost(input: CreatePostInput!): Post!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  author: User!
+#   likes: [Like]!
+#   comments: [Comment]!
+#   savedCount: Int!
+  assets: [String!]!
+}
+
+input CreatePostInput {
+  title: String!
+  assets: [String!]!
+}
+
+type PageInfo {
+  offset: Int!
+  limit: Int!
+}
+
+type Feed {
+  pageInfo: PageInfo!
+  posts: [Post!]!
+}

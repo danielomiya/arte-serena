@@ -1,0 +1,8 @@
+query getMe {
+  me {
+    id
+    name
+    bio
+    imageUrl
+  }
+}

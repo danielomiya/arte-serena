@@ -1,0 +1,19 @@
+query getUserFeed($offset: Int, $limit: Int) {
+  getUserFeed(offset: $offset, limit: $limit) {
+    pageInfo {
+      offset
+      limit
+    }
+    posts {
+      id
+      title
+      author {
+        id
+        name
+        followingCount
+        followersCount
+      }
+      assets
+    }
+  }
+}
